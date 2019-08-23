@@ -1,4 +1,3 @@
-/*
 package com.newdev.caots.config;
 
 
@@ -53,4 +52,3 @@ public class MvcConfiguration implements WebMvcConfigurer {
     }
 
 }
-*/

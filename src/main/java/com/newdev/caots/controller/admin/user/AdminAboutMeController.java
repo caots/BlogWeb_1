@@ -1,7 +1,6 @@
 package com.newdev.caots.controller.admin.user;
 
-import com.newdev.caots.entities.Menu;
-import com.newdev.caots.entities.Record;
+
 import com.newdev.caots.entities.admin.AboutMe;
 import com.newdev.caots.service.RecordService;
 import com.newdev.caots.service.admin.AboutMeService;

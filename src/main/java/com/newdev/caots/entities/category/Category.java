@@ -1,6 +1,5 @@
 package com.newdev.caots.entities.category;
 
-import com.newdev.caots.entities.Menu;
 import lombok.Data;
 
 import javax.persistence.*;

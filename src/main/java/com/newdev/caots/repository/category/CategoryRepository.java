@@ -1,7 +1,7 @@
 package com.newdev.caots.repository.category;
 
-import com.newdev.caots.entities.Menu;
 import com.newdev.caots.entities.category.Category;
+import com.newdev.caots.entities.category.Menu;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

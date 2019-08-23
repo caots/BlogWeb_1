@@ -57,6 +57,23 @@ public class NewsController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping("find-by-title/all")
+    public ResponseEntity<List<News>> findAllNewsByTitle(
+            @RequestParam("title") String title,
+            @RequestHeader("adminbksoftwarevn") String header
+    ) {
+
+        if (header.equals(Token.tokenHeader)) {
+
+            List<News> newsList = newsService.findAllNewsByNameTitle(title);
+
+            if (newsList != null) {
+                return new ResponseEntity<>(newsList, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @GetMapping("find-by-title/page")
     public ResponseEntity<List<News>> findAllNewsPage(
             @RequestParam(name = "page", required = false, defaultValue = "1") int page,

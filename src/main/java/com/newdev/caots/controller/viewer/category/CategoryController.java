@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/public/big-category")
+@RequestMapping("api/v1/public/category")
 public class CategoryController {
 
     @Autowired

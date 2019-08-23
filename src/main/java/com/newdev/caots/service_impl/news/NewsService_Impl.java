@@ -1,8 +1,10 @@
 package com.newdev.caots.service_impl.news;
 
+import com.newdev.caots.entities.Record;
 import com.newdev.caots.entities.category.Category;
 import com.newdev.caots.entities.news.News;
 import com.newdev.caots.entities.news.Tag;
+import com.newdev.caots.repository.RecordRepository;
 import com.newdev.caots.repository.news.NewsRepository;
 import com.newdev.caots.repository.news.TagRepository;
 import com.newdev.caots.service.news.NewsService;
@@ -11,7 +13,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -25,6 +29,9 @@ public class NewsService_Impl implements NewsService {
 
     @Autowired
     private TagRepository tagRepository;
+
+    @Autowired
+    private RecordRepository recordRepository;
 
 
     @Override
@@ -149,6 +156,67 @@ public class NewsService_Impl implements NewsService {
         }
         return sortable;
 
+    }
+
+    @Override
+    public Set<Integer> listTagAdd(String content) {
+        Set<Integer> tagIds = new HashSet<>();
+        System.out.println(content);
+        Record record = recordRepository.findByName("tag");
+        record.setNumber(record.getNumber() + 1);
+
+        String[] nameTag = content.split("@");
+
+        for (int i = 1; i < nameTag.length; i++) {
+            nameTag[i].replaceAll("\\s++", "");
+            nameTag[i].trim();
+            System.out.println(nameTag[i]);
+        }
+
+        List<Tag> tags = tagRepository.findAll();
+        for (int i = 1; i < nameTag.length; i++) {
+            int index = 1;
+
+            for (Tag tag : tags) {
+                if (tag.getName().equals(nameTag[i])) {
+                    index = -1;
+                    break;
+                }
+            }
+            System.out.println(index);
+            if (index == 1) {
+                Tag t = new Tag();
+                t.setName(nameTag[i]);
+                t.setStatus(true);
+                tagRepository.save(t);
+                Tag tag = findByNameUnique(t.getName());
+                tagIds.add(tag.getId());
+            } else {
+                Tag tag = findByNameUnique(nameTag[i]);
+                System.out.println(tag.getId());
+                tagIds.add(tag.getId());
+            }
+        }
+        return tagIds;
+    }
+
+    @Override
+    public List<News> findAllNewsByNameTitle(String title) {
+        try {
+            return newsRepository.findAllNewsByTitle(title);
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, "find-all-news-by-title-error : {0}", ex.getMessage());
+        }
+        return null;
+    }
+
+    private Tag findByNameUnique(String name) {
+        try {
+            return tagRepository.findByName(name);
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, "find-tag-by-name-error : {0}", ex.getMessage());
+        }
+        return null;
     }
 
 }

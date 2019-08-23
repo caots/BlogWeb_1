@@ -1,4 +1,4 @@
-package com.newdev.caots.entities;
+package com.newdev.caots.entities.category;
 
 import lombok.Data;
 

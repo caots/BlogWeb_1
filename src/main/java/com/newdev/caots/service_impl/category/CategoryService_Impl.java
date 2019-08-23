@@ -1,7 +1,7 @@
 package com.newdev.caots.service_impl.category;
 
-import com.newdev.caots.entities.Menu;
 import com.newdev.caots.entities.category.Category;
+import com.newdev.caots.entities.category.Menu;
 import com.newdev.caots.repository.category.CategoryRepository;
 import com.newdev.caots.repository.category.MenuRepository;
 import com.newdev.caots.service.category.CategoryService;

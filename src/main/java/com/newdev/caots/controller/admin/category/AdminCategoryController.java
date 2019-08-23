@@ -1,8 +1,8 @@
 package com.newdev.caots.controller.admin.category;
 
-import com.newdev.caots.entities.Menu;
 import com.newdev.caots.entities.Record;
 import com.newdev.caots.entities.category.Category;
+import com.newdev.caots.entities.category.Menu;
 import com.newdev.caots.service.RecordService;
 import com.newdev.caots.service.category.CategoryService;
 import com.newdev.caots.service.category.MenuService;
@@ -67,7 +67,7 @@ public class AdminCategoryController {
     //===========================  Category ===========================
 
     @PostMapping(value = "/category")
-    public ResponseEntity<Object> createBigCategory(@RequestBody Category category,
+    public ResponseEntity<Object> createCategory(@RequestBody Category category,
                                                     @RequestParam(value = "menu-id") int menuId) {
         Record record = recordService.findByName("category");
 
@@ -84,7 +84,7 @@ public class AdminCategoryController {
     }
 
     @PutMapping(value = "/category")
-    public ResponseEntity<Object> updateBigCategory(@RequestBody Category category) {
+    public ResponseEntity<Object> updateCategory(@RequestBody Category category) {
         if (categoryService.saveCategory(category))
             return new ResponseEntity<>(category, HttpStatus.OK);
         else
@@ -93,7 +93,7 @@ public class AdminCategoryController {
 
 
     @PutMapping(value = "category/delete")
-    public ResponseEntity<String> deleteMediumCategory(@RequestParam("id") int id) {
+    public ResponseEntity<String> deleteCategory(@RequestParam("id") int id) {
         Record record = recordService.findByName("category");
 
         Category category = categoryService.findCategoryById(id);

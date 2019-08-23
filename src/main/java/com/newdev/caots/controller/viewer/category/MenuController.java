@@ -1,7 +1,7 @@
 package com.newdev.caots.controller.viewer.category;
 
 import com.newdev.caots.common.Token;
-import com.newdev.caots.entities.Menu;
+import com.newdev.caots.entities.category.Menu;
 import com.newdev.caots.service.RecordService;
 import com.newdev.caots.service.category.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,7 +16,7 @@ public class ContactFormService_Impl implements ContactFormService {
 
     @Override
     public List<ContactForm> findAllContactForm() {
-        return contactFormRepository.findByStatus(true);
+        return contactFormRepository.findByStatus();
     }
 
     @Override

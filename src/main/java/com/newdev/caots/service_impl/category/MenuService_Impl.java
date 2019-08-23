@@ -1,6 +1,6 @@
 package com.newdev.caots.service_impl.category;
 
-import com.newdev.caots.entities.Menu;
+import com.newdev.caots.entities.category.Menu;
 import com.newdev.caots.repository.category.MenuRepository;
 import com.newdev.caots.service.category.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;

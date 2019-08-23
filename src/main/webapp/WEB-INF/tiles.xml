@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!--Login-->
+    <definition name="login" template="/WEB-INF/views/layouts/login.jsp"/>
+
+    <!-- Base Define -->
+    <definition name="base.definition"
+                template="/WEB-INF/views/layouts/index.jsp">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="header" value="/WEB-INF/views/baseFragments/header.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/baseFragments/menu.jsp"/>
+        <put-attribute name="body" value=""/>
+    </definition>
+    <!-- Body Admin  -->
+    <definition name="home" extends="base.definition">
+        <put-attribute name="title" value="home admin"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/home.jsp"/>
+    </definition>
+
+    <definition name="user" extends="base.definition">
+        <put-attribute name="title" value="user"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/user/user.jsp"/>
+    </definition>
+
+    <definition name="profile-admin" extends="base.definition">
+        <put-attribute name="title" value="profile"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/user/profile_admin.jsp"/>
+    </definition>
+
+    <definition name="form-send-email" extends="base.definition">
+        <put-attribute name="title" value="send email"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/form_send_mail.jsp"/>
+    </definition>
+
+    <definition name="content-form-contact" extends="base.definition">
+        <put-attribute name="title" value="image product"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/about_me/content_form.jsp"/>
+    </definition>
+
+
+    <definition name="form-contact" extends="base.definition">
+        <put-attribute name="title" value="form contact"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/about_me/form_contact.jsp"/>
+    </definition>
+
+    <definition name="category" extends="base.definition">
+        <put-attribute name="title" value="category"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/news/category.jsp"/>
+    </definition>
+
+    <definition name="news" extends="base.definition">
+        <put-attribute name="title" value="title"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/news/news.jsp"/>
+    </definition>
+
+    <definition name="about-me" extends="base.definition">
+        <put-attribute name="title" value="about me"/>
+        <put-attribute name="body" value="/WEB-INF/views/bodyFragments/about_me/about_me.jsp"/>
+    </definition>
+
+    <!--====================================== change ==========================================-->
+
+    <definition name="create-category" extends="base.definition">
+        <put-attribute name="title" value="create category"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/news/change_category.jsp"/>
+    </definition>
+
+    <definition name="update-category" extends="base.definition">
+        <put-attribute name="title" value="update category"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/news/change_category.jsp"/>
+    </definition>
+
+    <definition name="create-news" extends="base.definition">
+        <put-attribute name="title" value="create news"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/news/change_news.jsp"/>
+    </definition>
+
+    <definition name="update-news" extends="base.definition">
+        <put-attribute name="title" value="update news"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/news/change_news.jsp"/>
+    </definition>
+
+    <definition name="create-about-me" extends="base.definition">
+        <put-attribute name="title" value="create about me"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/about_me/change_about_me.jsp"/>
+    </definition>
+
+    <definition name="update-about-me" extends="base.definition">
+        <put-attribute name="title" value="update about me"/>
+        <put-attribute name="body" value="/WEB-INF/views/form-change/about_me/change_about_me.jsp"/>
+    </definition>
+
+</tiles-definitions>

@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface ContactFormRepository extends JpaRepository<ContactForm, Integer> {
 
-    @Query("select cf from ContactForm cf where cf.status = true and  b.menu.id= :id")
-    List<ContactForm> findByStatus(boolean status);
+    @Query("select cf from ContactForm cf where cf.status = true")
+    List<ContactForm> findByStatus();
 
     ContactForm findById(int id);
 

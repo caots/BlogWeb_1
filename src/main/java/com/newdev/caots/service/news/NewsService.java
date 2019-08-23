@@ -2,10 +2,12 @@ package com.newdev.caots.service.news;
 
 import com.newdev.caots.entities.category.Category;
 import com.newdev.caots.entities.news.News;
+import com.newdev.caots.entities.news.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
+import java.util.Set;
 
 public interface NewsService {
     List<News> findAllNewsByNameTitlePage(String name, Pageable pageable);
@@ -32,4 +34,8 @@ public interface NewsService {
 
     Sort sortData(String sort, String field);
 
+    Set<Integer> listTagAdd(String content);
+
+
+    List<News> findAllNewsByNameTitle(String title);
 }

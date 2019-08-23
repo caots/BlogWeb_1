@@ -42,6 +42,7 @@ public class ContactFormController {
             @RequestHeader("adminbksoftwarevn") String header
     ) {
         if (header.equals(Token.tokenHeader)) {
+            contactForm.setChecked(false);
             contactForm.setStatus(true);
             boolean result = contactFormService.saveContactForm(contactForm);
             System.out.println(result);

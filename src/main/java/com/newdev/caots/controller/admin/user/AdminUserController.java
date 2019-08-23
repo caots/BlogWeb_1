@@ -65,7 +65,6 @@ public class AdminUserController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-
     @PutMapping("/delete")
     public ResponseEntity<Object> deleteUser(@RequestParam("id") int id,
                                              HttpServletResponse response

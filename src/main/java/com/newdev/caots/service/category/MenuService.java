@@ -1,6 +1,6 @@
 package com.newdev.caots.service.category;
 
-import com.newdev.caots.entities.Menu;
+import com.newdev.caots.entities.category.Menu;
 
 import java.util.List;
 
