@@ -37,6 +37,21 @@ public class NewsController {
     private CategoryService categoryService;
 
 
+    @GetMapping("/all")
+    public ResponseEntity<List<News>> findAllNews(
+            @RequestHeader("adminbksoftwarevn") String header
+    ) {
+        if (header.equals(Token.tokenHeader)) {
+
+            List<News> newsList = newsService.findAllNews();
+
+            if (newsList != null) {
+                return new ResponseEntity<>(newsList, HttpStatus.OK);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @GetMapping("/page")
     public ResponseEntity<List<News>> findAllNews(
             @RequestParam(name = "page", required = false, defaultValue = "1") int page,
@@ -151,6 +166,19 @@ public class NewsController {
             if (newsList != null) {
                 return new ResponseEntity<>(newsList, HttpStatus.OK);
             }
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping("/category/all")
+    public ResponseEntity<List<News>> findAllNewsByCategory(
+            @RequestParam("category-id") int categoryId,
+            @RequestHeader("adminbksoftwarevn") String header
+    ) {
+
+        if (header.equals(Token.tokenHeader)) {
+            List<News> newsList = newsService.findAllNewsByCategory(categoryId);
+            return new ResponseEntity<>(newsList, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

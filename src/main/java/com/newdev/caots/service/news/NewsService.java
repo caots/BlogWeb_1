@@ -14,6 +14,8 @@ public interface NewsService {
 
     int sizeOfNewsByNameTitle(String name);
 
+    List<News> findAllNews();
+
     List<News> findAllNewsPage(Pageable pageable);
 
     List<News> findAllNewsByCategoryPage(Category category, Pageable pageable);
@@ -36,6 +38,7 @@ public interface NewsService {
 
     Set<Integer> listTagAdd(String content);
 
-
     List<News> findAllNewsByNameTitle(String title);
+
+    List<News> findAllNewsByCategory(int categoryId);
 }

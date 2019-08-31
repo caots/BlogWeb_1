@@ -46,6 +46,16 @@ public class NewsService_Impl implements NewsService {
     }
 
     @Override
+    public List<News> findAllNews() {
+        try {
+            return newsRepository.findAllNews();
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, "find-all-news-page-error : {0}", ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
     public List<News> findAllNewsPage(Pageable pageable) {
         try {
             return newsRepository.findAllNewsPage(pageable).getContent();
@@ -206,6 +216,16 @@ public class NewsService_Impl implements NewsService {
             return newsRepository.findAllNewsByTitle(title);
         } catch (Exception ex) {
             LOGGER.log(Level.SEVERE, "find-all-news-by-title-error : {0}", ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public List<News> findAllNewsByCategory(int categoryId) {
+        try {
+            return newsRepository.findAllNewsByCategoryId(categoryId);
+        } catch (Exception ex) {
+            LOGGER.log(Level.SEVERE, "find-tag-by-name-error : {0}", ex.getMessage());
         }
         return null;
     }

@@ -23,6 +23,9 @@ public interface NewsRepository extends JpaRepository<News, Integer> {
     @Query("select n from News n where n.status = true order by n.timePost desc")
     Page<News> findAllNewsPage( Pageable pageable);
 
+    @Query("select n from News n where n.status = true order by n.timePost desc")
+    List<News> findAllNews();
+
     @Query("select n from News n where n.status = true and  n.category.id= :id  order by n.timePost desc")
     List<News> findAllNewsByCategoryId(@Param("id") int id);
 
